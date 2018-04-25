@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="{{site.charset}}" />
+  <link rel="stylesheet" property="stylesheet" href="{{ revisionedPath('styles/main.css') }}" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.querySelector('html').classList.remove('no-js');</script>
+  {% if hasVendor() %}
+    <script src="{{ revisionedPath('scripts/vendor.js') }}" defer></script>
+  {% endif %}
+  {% if hasWebpackManifest() %}
+    <script>
+      (function() {
+        var p = '{{ getScriptsPath() }}';
+        var wm = window.webpackManifest = {{ getWebpackManifest() }};
+        Object.keys(wm).forEach(function(n){wm[n]=p+wm[n]});
+      })();
+    </script>
+  {% endif %}
+  <script src="{{ revisionedPath('scripts/app.bundle.js') }}" defer></script>
+<link rel="pingback" href="{{site.pingback_url}}" />
+  {{function('wp_head')}}
+  {% block head %}
+  {% endblock %}
+</head>
+
+<body class="{{body_class}}">
+  {% block header %}
+    {% include 'components/header.twig' %}
+  {% endblock %}
+  
+  {% include 'components/main-nav.twig' %}
+
+  <main class="o-wrapper">
+    {% block content %}
+      Sorry, no content
+    {% endblock %}
+  </main>
+
+  {% block footer %}
+    {% include 'components/footer.twig' %}
+  {% endblock %}
+  {{ function('wp_footer') }}
+</body>
+</html>
