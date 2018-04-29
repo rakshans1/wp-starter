@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `zx4yjn4r_commentmeta`
 --
 
+use wpdb
 CREATE TABLE `zx4yjn4r_commentmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',

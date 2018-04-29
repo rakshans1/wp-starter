@@ -48,5 +48,5 @@ npm-debug.log
 .rvmrc
 .vagrant
 dev-vhost.conf
-.yo-rc-local.json
+#.yo-rc-local.json
 wp-db

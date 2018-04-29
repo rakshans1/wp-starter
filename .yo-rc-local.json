@@ -1,0 +1,7 @@
+{
+  "generator-chisel": {
+    "config": {
+      "proxyTarget": "localhost:8080"
+    }
+  }
+}

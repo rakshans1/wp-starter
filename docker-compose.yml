@@ -17,9 +17,11 @@ services:
   wpdb:
     image: mysql
     environment:
+      MYSQL_DATABASE: wpdb
       MYSQL_ROOT_PASSWORD: temp
     volumes:
       - ./wp-db:/var/lib/mysql
+      - ./data:/docker-entrypoint-initdb.d
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
