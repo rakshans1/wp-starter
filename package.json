@@ -5,8 +5,10 @@
   "description": "wp-starter",
   "scripts": {
     "init": "./install.sh",
-    "prestart": "docker-compose -f docker-compose-dev.yml up -d",
-    "start": "cd wp-content/themes/wp-starter-theme && npm start",
+    "install": "cd wp-content/themes/wp-starter-theme && npm install",
+    "predev": "docker-compose -f docker-compose-dev.yml up -d",
+    "dev": "cd wp-content/themes/wp-starter-theme && npm start",
+    "start": "docker-compose up -d",
     "stop": "docker-compose -f docker-compose-dev.yml down",
     "build": "cd wp-content/themes/wp-starter-theme && gulp build"
   },
