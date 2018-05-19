@@ -1,0 +1,14 @@
+{
+  "generator-wp": {
+    "config": {
+      "name": "WpStarter",
+      "author": "Rakshan",
+      "projectType": "wp-with-fe",
+      "nameSlug": "wpstarter",
+      "nameCamel": "WpStarter",
+      "proxyTarget": "localhost:8080",
+      "has_jquery": true,
+      "has_jquery_vendor_config": true
+    }
+  }
+}

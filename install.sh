@@ -1,6 +1,10 @@
 if ! [ -x "$(command -v docker)" ]; then
     echo "Installing Docker"
     wget -qO- https://get.docker.com/ | sh
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    sudo systemctl enable docker
+    sudo service docker restart
 fi
 if ! [ -x "$(command -v docker-compose)" ]; then
     echo "Installing Docker"

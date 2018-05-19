@@ -1,0 +1,32 @@
+version: "2"
+services:
+  wp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      WORDPRESS_DB_PASSWORD: temp
+      WORDPRESS_DB_NAME: wpdb
+      WORDPRESS_DB_HOST: wpdb
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+  wpdb:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: wpdb
+      MYSQL_ROOT_PASSWORD: temp
+    volumes:
+      - wp-db:/var/lib/mysql
+      - ./data:/docker-entrypoint-initdb.d
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8181:80
+    environment:
+      MYSQL_ROOT_PASSWORD: temp
+      PMA_HOST: wpdb
+volumes:
+    wp-db:
+      driver: local
