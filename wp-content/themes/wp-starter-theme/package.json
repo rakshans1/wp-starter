@@ -101,8 +101,5 @@
   "dependencies": {},
   "engines": {
     "node": ">=6"
-  },
-  "pre-commit": [
-    "lint"
-  ]
+  }
 }
