@@ -3,11 +3,12 @@ services:
   wp:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-dev
     environment:
       WORDPRESS_DB_PASSWORD: temp
       WORDPRESS_DB_NAME: wpdb
       WORDPRESS_DB_HOST: wpdb
+      XDEBUG_CONFIG: "remote_enable=1 remote_autostart=1 remote_connect_back=0 remote_host=172.17.0.1"
     volumes:
       - ./:/var/www/html
     ports:

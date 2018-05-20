@@ -1,0 +1,7 @@
+FROM wordpress
+
+RUN rm -rf /var/www/html/*
+
+
+RUN pecl install xdebug-2.6.0 && \
+  docker-php-ext-enable xdebug
