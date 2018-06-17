@@ -1,0 +1,16 @@
+path: ../
+url: http://localhost:8080
+title: Wp Starter
+admin_user: admin
+admin_password: temp
+admin_email: shetty.raxx555@gmail.com
+# user: admin
+config create:
+    dbname: wpdb
+    dbuser: root
+    dbhost: wpdb
+    dbpass: temp
+    extra-php: |
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', true);

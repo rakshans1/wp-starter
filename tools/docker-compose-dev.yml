@@ -4,17 +4,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-dev
+    container_name: "wp_starter"
     environment:
       WORDPRESS_DB_PASSWORD: temp
       WORDPRESS_DB_NAME: wpdb
       WORDPRESS_DB_HOST: wpdb
       XDEBUG_CONFIG: "remote_enable=1 remote_autostart=1 remote_connect_back=0 remote_host=172.17.0.1"
     volumes:
-      - ./:/var/www/html
+      - ../:/var/www/html
     ports:
       - "8080:80"
   wpdb:
     image: mysql:5.7
+    container_name: "wp_starter_db"
     environment:
       MYSQL_DATABASE: wpdb
       MYSQL_ROOT_PASSWORD: temp
@@ -22,6 +24,7 @@ services:
       - ./wp-db:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: "wp_starter_phpmyadmin"
     ports:
       - 8181:80
     environment:

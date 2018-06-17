@@ -9,7 +9,7 @@ services:
       WORDPRESS_DB_NAME: wpdb
       WORDPRESS_DB_HOST: wpdb
     volumes:
-      - ./:/var/www/html
+      - ../:/var/www/html
     ports:
       - "443:80"
   wpdb:
