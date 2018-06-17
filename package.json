@@ -4,7 +4,7 @@
   "author": "Rakshan",
   "description": "wp-starter",
   "scripts": {
-    "init": "./install.sh",
+    "init": "./tools/install.sh",
     "install": "cd wp-content/themes/wp-starter-theme && npm install",
     "predev": "docker-compose -f docker-compose-dev.yml up -d",
     "dev": "cd wp-content/themes/wp-starter-theme && npm start",
