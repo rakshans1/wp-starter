@@ -3,3 +3,4 @@ wp-db
 /*/
 !wp-content/
 !.gitignore
+!tools
