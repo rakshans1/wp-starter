@@ -1,0 +1,27 @@
+if ! [ -x "wp" ]; then
+  echo "Setting up wordpress"
+  cd ./tools
+elif ! [ -x "$(command -v wp)" ]; then
+    echo "Installing Wp-cli"
+    cd ./tools
+    wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    chmod +x wp-cli.phar
+    sudo mv wp-cli.phar wp
+fi
+
+# Download wp setup
+./wp core download
+
+# Launch the containers
+echo "Starting Docker containers..."
+docker-compose -f docker-compose-dev.yml up -d >/dev/null
+
+# Wait until the docker containers are setup properely
+echo -en $(status_message "Attempting to connect to wordpress...")
+until $(curl -L http://localhost:8080 -so - 2>&1 | grep -q "WordPress"); do
+    echo -n '.'
+    sleep 5
+done
+echo ''
+
+./wp core install
